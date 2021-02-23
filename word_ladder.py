@@ -20,12 +20,14 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     ```
     may give the output
     ```
-    ['stone', 'shone', 'phone', 'phony', 'peony', 'penny', 'benny', 'bonny', 'boney', 'money']
+    ['stone', 'shone', 'phone', 'phony', 'peony', 'penny',
+    'benny', 'bonny', 'boney', 'money']
     ```
     but the possible outputs are not unique,
     so you may also get the output
     ```
-    ['stone', 'shone', 'shote', 'shots', 'soots', 'hoots', 'hooty', 'hooey', 'honey', 'money']
+    ['stone', 'shone', 'shote', 'shots', 'soots', 'hoots',
+    'hooty', 'hooey', 'honey', 'money']
     ```
     (We cannot use doctests here because the outputs are not unique.)
 
@@ -37,7 +39,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
 
     q = deque()
     q.append(stack)
-    
+
     dictfile = open(dictionary_file)
     dictlist = [word.strip() for word in dictfile.readlines()]
 
@@ -68,10 +70,6 @@ def verify_word_ladder(ladder):
     '''
     if not ladder:
         return False
-    #if len(ladder) >= 1:
-    #    if len(ladder) == 1:
-    #        return True
-    #    else:
     for i in range(0, len(ladder) - 1):
         if _adjacent(ladder[i], ladder[i + 1]):
             continue
@@ -102,4 +100,4 @@ def _adjacent(word1, word2):
         if count != 1:
             return False
         else:
-            return True 
+            return True
